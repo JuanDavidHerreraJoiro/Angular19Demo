@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body {
+    height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family);
+}
+
+body {
+    font-family: var(--font-family);
+    color: #161c2d;
+    font-size: 15px;
+}
+
+:root {
+    --font-family: "Nunito", sans-serif;
+
+    --primary-color: #05bd93;
+    --secondary-color: #ffffff;
+    --tertiary-color: #000000;
+
+    --bg-overlay-color: #173439f2;
+
+    --navbar-color: #233e4300;
+    --nav-Link-color: #ffffff;
+    --nav-sticky-color: #ffffff00;
+
+    --active-Link-color: #ffffff;
+    --mat-card-color:#ffffff;
+    --subtitle-color:#8492a6;
+
+    --shadow-card-color:#00000021;
+    --shadow-icon-color:#21695826;
+    --shadow-box-color:#00000021;
+}

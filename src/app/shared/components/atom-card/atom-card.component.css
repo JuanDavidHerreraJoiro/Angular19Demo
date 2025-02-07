@@ -1,0 +1,41 @@
+
+mat-card {
+    background-color: var(--mat-card-color);
+    box-shadow: 0px 10px 22px var(--shadow-card-color);
+    border-radius: 4px;
+    border-color: var(--mat-card-color)
+}
+
+.mat-mdc-card-header {
+    display: flex;
+    padding: 10px 16px 10px 16px;
+    align-items: center;
+}
+
+mat-card-title{
+    font-weight: bold;
+    font-size: 17px;
+    font-family: var(--font-family);
+}
+
+mat-card-subtitle{
+    font-size: 16px;
+    color: var(--subtitle-color) !important;
+}
+
+.feature-icon {
+    margin-right: 10px;
+}
+
+mat-card-header .feature-icon {
+    display: flex;
+    background-color: var(--shadow-icon-color);
+    color: var(--primary-color);
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+}
