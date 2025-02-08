@@ -1,0 +1,65 @@
+<div class="login-container">
+    <div class="login-right">
+        <a class="logodark" href="/home">
+            <img src="../../../../assets/images/jh2.png" alt="logo" class="align-middle m-2" />
+        </a>
+        <div class="login-info">
+            <img src="../../../../assets/images/sign-in.png" alt="" />
+        </div>
+    </div>
+    <div class="login-left">
+        <div class="login-title">
+            <h4>Welcome to Flexy</h4>
+            <span>New to Flexy? <a href="/sign-in">Create an account</a></span>
+        </div>
+        <form (ngSubmit)="guardar()" [formGroup]="loginForm" autocomplete="off">
+            <mat-form-field appearance="outline" color="primary">
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="username" placeholder="" [errorStateMatcher]="vs.matcher"
+                    type="text" />
+                <mat-error *ngIf="vs.campoEsValido('username')">{{
+                    vs.getMensaje("username")
+                    }}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" color="primary">
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" placeholder="" [errorStateMatcher]="vs.matcher"
+                    type="password" />
+                <mat-error *ngIf="vs.campoEsValido('password')">{{
+                    vs.getMensaje("password")
+                    }}</mat-error>
+            </mat-form-field>
+
+            <div class="forgot-password">
+                <a href="/forgot-password">Forgot Password?</a>
+            </div>
+
+            <button type="submit" mat-raised-button color="primary">
+                Iniciar
+                <i *ngIf="loginForm.pending" class="pi pi-spin pi-spinner"></i>
+            </button>
+
+            <div class="separator">
+                <div class="line"></div>
+                <span class="text">or sign in with</span>
+                <div class="line"></div>
+            </div>
+
+            <div class="social-buttons">
+                <button type="button" mat-raised-button class="btn google" color="primary">
+                    Google
+                </button>
+
+                <div class="btn-group">
+                    <button type="button" mat-raised-button class="btn facebook" color="primary">
+                        Facebook
+                    </button>
+                    <button type="button" mat-raised-button class="btn twitter" color="primary">
+                        Twitter
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

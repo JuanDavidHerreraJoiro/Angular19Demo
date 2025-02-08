@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, Input } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Component, HostListener } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 import { MaterialModule } from '../../directives/material.module';
 
 @Component({
@@ -25,7 +25,7 @@ export class NavMenuComponent {
     { path: 'blog', label: 'Blog' },
     { path: 'contact', label: 'Contact' },
     { path: 'login', label: 'Login' },
-    { path: 'Sign-in', label: 'Sign in' }
+    { path: 'sign-in', label: 'Sign in' }
   ];
 
   @HostListener('window:scroll', [])
@@ -50,8 +50,18 @@ export class NavMenuComponent {
     });
   }
 
+  constructor(private router: Router) {}
+
   setActiveFragment(fragment: string) {
     this.activeFragment = fragment;
+
+    this.redirectToLogin(fragment);
+  }
+
+  redirectToLogin(ruta: string) {
+    if(ruta === 'login' || ruta === 'sign-in') {
+      this.router.navigate(['/'+ruta]);
+    }
   }
   
 }

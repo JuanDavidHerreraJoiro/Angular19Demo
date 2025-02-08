@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { NavMenuComponent } from './shared/components/nav-menu/nav-menu.component';
 
 @Component({
   imports: [
     CommonModule,
     RouterOutlet,
-    NavMenuComponent
+    NavMenuComponent,
   ],
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,16 +16,9 @@ import { NavMenuComponent } from './shared/components/nav-menu/nav-menu.componen
 export class AppComponent {
   title = 'app-colegio';
 
-  menuItems = [
-    { path: 'home', label: 'Home' },
-    { path: 'service', label: 'Service' },
-    { path: '/process', label: 'Process' },
-    { path: '/testimonial', label: 'Testimonial' },
-    { path: '/portfolio', label: 'Portfolio' },
-    { path: '/pricing', label: 'Pricing' },
-    { path: '/blog', label: 'Blog' },
-    { path: '/contact', label: 'Contact' },
-    { path: '/login', label: 'Login' },
-    { path: '/Sign-in', label: 'Sign in' }
-  ];
+  constructor(private router: Router) {}
+
+  shouldShowNavMenu(): boolean {
+    return this.router.url !== '/login' && this.router.url !== '/sign-in' && this.router.url !== '/graphic';
+  }
 }

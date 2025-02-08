@@ -8,7 +8,10 @@ import { MaterialModule } from '../../directives/material.module';
   styleUrl: './atom-card.component.css'
 })
 export class AtomCardComponent {
-  @Input() icon!: string;
+  @Input() icon?: string;
   @Input() title!: string;
   @Input() subtitle!: string;
+
+  @Input() image?: string;
+  @Input() boxShadow?: boolean = false;
 }

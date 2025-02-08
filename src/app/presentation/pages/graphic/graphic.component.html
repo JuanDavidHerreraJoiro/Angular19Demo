@@ -1,0 +1,36 @@
+<h1>Dashboard</h1>
+
+<mat-grid-list cols="2" rowHeight="500px">
+  <mat-grid-tile>
+    <mat-grid-tile-header>Total Users</mat-grid-tile-header>
+    <mat-card>
+      <mat-card-content>
+        <canvas #totalUsers id="totalUsers" width="300" height="300"></canvas>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-grid-tile-header>Users Logins</mat-grid-tile-header>
+    <mat-card>
+      <mat-card-content>
+        <canvas #userLogins id="userLogins" width="300" height="300"></canvas>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-grid-tile-header>Users Types</mat-grid-tile-header>
+    <mat-card>
+      <mat-card-content>
+        <canvas #userTypes id="userTypes" width="300" height="300"></canvas>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-grid-tile-header>API Calls</mat-grid-tile-header>
+    <mat-card>
+      <mat-card-content>
+        <canvas #userTypes id="apiCalls" width="300" height="300"></canvas>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
