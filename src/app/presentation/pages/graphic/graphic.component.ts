@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, ElementRef, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { Chart, ChartConfiguration, registerables } from 'chart.js';
+import { Chart, ChartConfiguration, registerables, ChartType } from 'chart.js';
 import { MaterialModule } from '../../../shared/directives/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 Chart.register(...registerables);
@@ -18,54 +18,146 @@ Chart.register(...registerables);
   templateUrl: './graphic.component.html',
   styleUrl: './graphic.component.css'
 })
-export class GraphicComponent {
+export class GraphicComponent implements AfterViewInit {
 
   totalUsers?: any;
   userLogins: any;
   userTypes: any;
   apiCalls: any;
-  chart?: Chart;
+  chart: Chart | undefined;
+  exampleData: any;
 
-  exampleData: any = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr'],
-    Juan: [12, 45, 22, 23],
-    Michael: [8, 30, 18, 21],
-    Rumbo: [19, 15, 19, 13],
-    Karen: [1, 0, 5, 20]
-  };
+  constructor( ) {
 
-  constructor( ) { }
+    /*this.exampleData = {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr'],
+      Juan: [12, 45, 22, 23],
+      Michael: [8, 30, 18, 21],
+      Rumbo: [19, 15, 19, 13],
+      Karen: [1, 0, 5, 20]
+    };*/
 
+   }
+
+   ngAfterViewInit(): void {
+
+    this.InitializaChar();
+  
+  }
+
+  private InitializaChar() {
+    const DATA_COUNT = 6;
+    const NUMBER_CFG = { count: DATA_COUNT, min: -100, max: 100 };
+
+    const labels = this.getMonths(DATA_COUNT);
+
+    const data = {
+      labels: labels,
+      datasets: [
+        {
+          label: 'Candidato 1',
+          data: this.getRandomNumbers(NUMBER_CFG),
+          borderColor: this.getRandomColor(),
+          backgroundColor: this.getRandomColor(0.1),
+          tension: 0.4,
+        },
+        {
+          label: 'Candidato 2',
+          data: this.getRandomNumbers(NUMBER_CFG),
+          borderColor: this.getRandomColor(),
+          backgroundColor: this.getRandomColor(0.1),
+          tension: 0.4,
+        },
+        {
+          label: 'Candidato 3',
+          data: this.getRandomNumbers(NUMBER_CFG),
+          borderColor: this.getRandomColor(),
+          backgroundColor: this.getRandomColor(0.1),
+          tension: 0.4,
+        },
+        {
+          label: 'Candidato 4',
+          data: this.getRandomNumbers(NUMBER_CFG),
+          borderColor: this.getRandomColor(),
+          backgroundColor: this.getRandomColor(0.1),
+          tension: 0.4,
+        }
+      ]
+    };
+
+    const config: ChartConfiguration<'line'> = {
+      type: 'line',
+      data: data,
+      options: {
+        animations: {
+          radius: {
+            duration: 400,
+            easing: 'linear',
+            loop: (context) => context.active
+          }
+        },
+        interaction: {
+          mode: 'nearest',
+          intersect: false,
+          axis: 'x'
+        },
+        plugins: {
+          tooltip: {
+            enabled: false
+          }
+        },
+        elements: {
+          point: {
+            hoverRadius: 12,
+            hoverBackgroundColor: 'yellow'
+          }
+        }
+      },
+    };
+
+    
+    this.chart = new Chart('totalUsers', config);
+  }
+
+  private getMonths(count: number): string[] {
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    return months.slice(0, count);
+  }
+
+  private getRandomNumbers(config: { count: number; min: number; max: number }): number[] {
+    return Array.from({ length: config.count }, () => Math.floor(Math.random() * (config.max - config.min + 1)) + config.min);
+  }
 
   /*ngAfterViewInit(): void {
     if (this.exampleData) {
       this.initializeChart();
     }
-  }
+  }*/
 
-  ngOnChanges(changes: SimpleChanges): void {
+  /*ngOnChanges(changes: SimpleChanges): void {
     if (changes['data'] && this.exampleData) {
       this.updateChart();
     }
   }*/
 
-  ngOnInit() {
+  /*ngOnInit() {
 
     /*if (changes['data'] && this.exampleData) {
       this.totalUsers = this.createTotalUsersChart(this.exampleData);
-    }*/
+    }
 
     this.totalUsers = new Chart('totalUsers', this.createTotalUsersChart(this.exampleData));
     this.userLogins = new Chart('userLogins', this.createUserLoginsChart());
     this.userTypes = new Chart('userTypes', this.createUserTypesChart());
     this.apiCalls = new Chart('apiCalls', this.createApiCallsChart());
-  }
-  ngOnDestroy() {
+  }*/
+
+ /* ngOnDestroy() {
     this.totalUsers.destroy();
     this.userLogins.destroy();
-  }
+  }*/
 
- /* initializeChart(): void {
+ /*initializeChart(): void {
     const ctx = this.chartCanvas!.nativeElement.getContext('2d');
     if (!ctx) {
       console.error('Failed to acquire chart context');
@@ -80,7 +172,6 @@ export class GraphicComponent {
       this.chart.update();
     }
   }*/
-
 
   createTotalUsersChart(data: any): ChartConfiguration<'line'> {
     return {

@@ -1,0 +1,19 @@
+.graphic-container {
+    display: block;
+    height: 100vh;
+  }
+
+  mat-card {
+    margin-top: 50px;
+    height: 80%;
+    width: 80%;
+  }
+
+  mat-grid-list {
+    height: 100%;
+  }
+
+  mat-card-content{
+    height: 100%;
+    width: 100%;
+  }

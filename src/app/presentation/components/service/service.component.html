@@ -7,12 +7,11 @@
                     <p class="text-uppercase text-muted mb-2">Services We're Provided</p>
                     <h3>We do all Creative Services</h3>
                     <div class="title-border mt-3"></div>
-                    <p class="text-muted mt-3">We craft digital, graphic and dimensional thinking, to create category leading brand experiences that have meaning and add a value.</p>
+                    <p class="text-muted mt-3">We craft digital, graphic and dimensional thinking, to create category
+                        leading brand experiences that have meaning and add a value.</p>
                 </div>
             </div>
-            <!--end col-->
         </div>
-        <!--end row-->
 
         <div class="row">
             <div class="col-lg-4 col-md-6" *ngFor="let service of services">
@@ -24,8 +23,35 @@
                 </div>
             </div>
         </div>
-        <!--end row-->
     </div>
-    <!--end container-->
 </section>
-<!-- -->
+<!-- Service -->
+
+<section class="section bg-light">
+    <div class="container">
+        <div class="row align-items-center g-3 g-lg-0">
+            <div class="col-lg-6">
+                <div class="skill-box bg-white p-4 rounded box-shadow">
+                    <p class="text-uppercase mb-1">About Agency</p>
+                    <h3 class="mb-2">Leading Digital Agency for Business Solution.</h3>
+                    <p class="text-muted">When a good idea comes, you know, part of my job is to move it around,
+                        just see what people think, get people talking about it.</p>
+
+                    <div class="skills" *ngFor="let skill of skills">
+                        <div class="mt-4">
+                            <p class="fw-bold mb-2">{{skill.title}}</p>
+                            <div class="progress">
+                                <div class="progress-bar rounded" [style.width]="skill.percentage">
+                                    <p class="progress-value fs-15 fw-bold">{{skill.percentage}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 about-img">
+                <img src="../../../../assets/images/about.jpg" class="img-fluid rounded box-shadow" alt="">
+            </div>
+        </div>
+    </div>
+</section>

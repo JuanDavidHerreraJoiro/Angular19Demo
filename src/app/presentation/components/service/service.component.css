@@ -2,6 +2,7 @@
 .box-shadow {
     box-shadow: 0px 10px 22px var(--shadow-box-color);
 }
+
 .section {
     padding-top: 80px;
     padding-bottom: 80px;
@@ -24,7 +25,65 @@
 .title-border {
     width: 80px;
     height: 1px;
-    background: var(--primary-color);;
+    background: var(--primary-color);
     background: linear-gradient(to right, transparent, var(--primary-color), transparent);
     margin: 0 auto;
+}
+
+.skill-box {
+    z-index: 3;
+    position: relative;
+}
+
+.rounded {
+    border-radius: 5px !important;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.about-img {
+    position: relative;
+    margin-left: -50px;
+    margin-top: 0px;
+    min-width: calc(50% + 50px);
+    flex: none;
+}
+
+.fw-bold {
+    font-weight: 700 !important;
+}
+
+.skill-box .progress {
+    height: 8px;
+    background: #e9ecef;
+    overflow: visible;
+}
+
+.skill-box .progress-bar {
+    position: relative;
+    background-color: var(--primary-color);
+    animation: animate-positive 2s;
+    overflow: visible;
+}
+
+.fs-15 {
+    font-size: 15px;
+}
+
+.skill-box .progress-value {
+    display: block;
+    color: #161c2d;
+    position: absolute;
+    top: -31px;
+    right: -25px;
+}
+
+@media (max-width: 992px) {
+    .about-img {
+        margin-left: 0px;
+        margin-top: 28px;
+    }
 }

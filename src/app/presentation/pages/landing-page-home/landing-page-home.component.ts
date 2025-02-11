@@ -3,13 +3,15 @@ import { Component } from '@angular/core';
 import { MaterialModule } from '../../../shared/directives/material.module';
 import { AtomCardComponent } from "../../../shared/components/atom-card/atom-card.component";
 import { ServiceComponent } from '../../components/service/service.component';
+import { ProcessComponent } from '../../components/process/process.component';
 
 @Component({
   imports: [
     CommonModule, 
     MaterialModule, 
     AtomCardComponent,
-    ServiceComponent
+    ServiceComponent,
+    ProcessComponent
   ],
   selector: 'app-landing-page-home',
   templateUrl: './landing-page-home.component.html',

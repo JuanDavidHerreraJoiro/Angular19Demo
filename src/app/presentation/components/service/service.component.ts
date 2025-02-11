@@ -20,4 +20,11 @@ export class ServiceComponent {
     { image: 'assets/images/feature/img-06.png', title: 'Online Marketing', subtitle: 'This is required when, for example, the is not yet available. Dummy text is also known as "fill text".', boxShadow: true }
   ];
 
+  skills = [
+    { title: 'Web Design', percentage: '80%'},
+    { title: 'Development', percentage: '60%'},
+    { title: 'Branding', percentage: '40%'},
+    { title: 'Code', percentage: '75%'},
+  ];
+
 }
