@@ -20,9 +20,9 @@ export class NavMenuComponent {
     { path: 'service', label: 'Service' },
     { path: 'process', label: 'Process' },
     { path: 'testimonial', label: 'Testimonial' },
-    { path: 'portfolio', label: 'Portfolio' },
-    { path: 'pricing', label: 'Pricing' },
-    { path: 'blog', label: 'Blog' },
+    //{ path: 'portfolio', label: 'Portfolio' },
+    //{ path: 'pricing', label: 'Pricing' },
+    //{ path: 'blog', label: 'Blog' },
     { path: 'contact', label: 'Contact' },
     { path: 'login', label: 'Login' },
     { path: 'sign-in', label: 'Sign in' }

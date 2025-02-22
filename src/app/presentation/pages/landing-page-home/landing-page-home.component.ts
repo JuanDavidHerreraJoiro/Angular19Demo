@@ -4,15 +4,20 @@ import { MaterialModule } from '../../../shared/directives/material.module';
 import { AtomCardComponent } from "../../../shared/components/atom-card/atom-card.component";
 import { ServiceComponent } from '../../components/service/service.component';
 import { ProcessComponent } from '../../components/process/process.component';
+import { TestimonialComponent } from '../../components/testimonial/testimonial.component';
+import { ContactComponent } from "../../components/contact/contact.component";
 
 @Component({
   imports: [
-    CommonModule, 
-    MaterialModule, 
+    CommonModule,
+    MaterialModule,
     AtomCardComponent,
     ServiceComponent,
-    ProcessComponent
-  ],
+    ProcessComponent,
+    TestimonialComponent,
+    ContactComponent
+    
+],
   selector: 'app-landing-page-home',
   templateUrl: './landing-page-home.component.html',
   styleUrl: './landing-page-home.component.css'

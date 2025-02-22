@@ -73,9 +73,9 @@ i {
     width: 52px;
     height: 52px;
     line-height: 52px;
-    background: #05bd93;
+    background: var(--primary-color);
     display: inline-block;
-    color: #fff;
+    color: var(--secondary-color);
     text-align: center;
     border-radius: 50%;
 }
