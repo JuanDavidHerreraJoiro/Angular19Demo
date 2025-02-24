@@ -1,5 +1,5 @@
 <!-- testimonial -->
- <section class="section" id="testimonial">
+<section class="section" id="testimonial">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-7">
@@ -17,59 +17,39 @@
                 <div id="testimonialSlider" class="carousel slide" data-bs-ride="carousel">
 
                     <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#testimonialSlider" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"><img src="../../../../assets/images/users/img-5.jpg" alt="" class="testi-img  img-fluid rounded mx-auto d-block"></button>
-                        <button type="button" data-bs-target="#testimonialSlider" data-bs-slide-to="1" aria-label="Slide 2" class=""> <img src="../../../../assets/images/users/img-6.jpg" alt="" class="testi-img img-fluid mx-auto d-block"></button>
-                        <button type="button" data-bs-target="#testimonialSlider" data-bs-slide-to="2" aria-label="Slide 3" class=""> <img src="../../../../assets/images/users/img-7.jpg" alt="" class=" testi-img img-fluid rounded mx-auto d-block"></button>
+                        <ng-container *ngFor="let testimonial of testimonials; let i = index">
+                            <button type="button" [attr.data-bs-target]="'#testimonialSlider'"
+                                [attr.data-bs-slide-to]="i" [attr.aria-label]="'Slide ' + (i + 1)"
+                                [class.active]="i === 0" [class.aria-current]="i === 0">
+                                <img [src]="testimonial.image" alt=""
+                                    class="testi-img img-fluid rounded mx-auto d-block">
+                            </button>
+                        </ng-container>
                     </div>
 
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="testimonial-box text-center mt-4">
-                                <div class="testimonial-content rounded">
-                                    <p class="text-muted mb-0">" Very well thought out and articulate communication.l
-                                        Clear milestones, deadlines and fast work. Patience. Infinite patience. No
-                                        shortcuts. Even if the client is being careless. "</p>
+                        <ng-container *ngFor="let testimonial of testimonials; let i = index">
+                            <div class="carousel-item" [class.active]="i === 0">
+                                <div class="testimonial-box text-center mt-4">
+                                    <div class="testimonial-content rounded">
+                                        <p class="text-muted mb-0">{{ testimonial.feedback }}</p>
+                                    </div>
+                                    <i class="mdi mdi-format-quote-close text-primary display-3"></i>
+                                    <h5 class="fs-18">{{ testimonial.name }}</h5>
+                                    <p class="text-muted mb-0">{{ testimonial.role }}</p>
                                 </div>
-                                <i class="mdi mdi-format-quote-close text-primary display-3"></i>
-                                <h5 class="fs-18">Jennifer Shapiro</h5>
-                                <p class="text-muted mb-0">Frontend</p>
                             </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="testimonial-box text-center mt-4">
-                                <div class="testimonial-content rounded">
-                                    <p class="text-muted mb-0">" It looks perfect on all major browsers, tablets,
-                                        and mobile devices. All files are organized we believe it will be easy to
-                                        use and edit them. This template is well organized and very easy to
-                                        customize. "</p>
-                                </div>
-                                <i class="mdi mdi-format-quote-close text-primary display-3"></i>
-                                <h5 class="fs-18">Brandon Carney</h5>
-                                <p class="text-muted mb-0">Designer</p>
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="testimonial-box text-center mt-4">
-                                <div class="testimonial-content rounded">
-                                    <p class="text-muted mb-0">" All your client websites if you are an agency or
-                                        freelancer. It got all the tools needs to create super fast responsive
-                                        websites with amazing user experience. We have added a Dark version with RTL
-                                        supported. "</p>
-                                </div>
-                                <i class="mdi mdi-format-quote-close text-primary display-3"></i>
-                                <h5 class="fs-18">William Mooneyhan</h5>
-                                <p class="text-muted mb-0">Developer</p>
-                            </div>
-                        </div>
+                        </ng-container>
                     </div>
 
-                    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialSlider" data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialSlider"
+                        data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#testimonialSlider" data-bs-slide="next">
+
+                    <button class="carousel-control-next" type="button" data-bs-target="#testimonialSlider"
+                        data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
@@ -93,103 +73,31 @@
                         tortor commodo sed Pellentesque hendrerit pellentesque libero nec sollicitudin.</p>
                 </div>
             </div>
-            <!-- END COL -->
         </div>
-        <!-- END ROW -->
 
         <div class="row mt-5">
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-3 col-md-6" *ngFor="let member of teamMembers">
                 <div class="team-box text-center">
                     <div class="team-img position-relative">
-                        <img src="../../../../assets/images/users/img-2.jpg" class="img-fluid rounded" alt="">
+                        <img [src]="member.img" class="img-fluid rounded" alt="">
                         <div class="team-content">
                             <ul class="list-inline mb-0 p-0">
-                                <li class="list-inline-item"><a aria-label="Facebook" href="#"><i class="mdi mdi-facebook"></i></a></li>
-                                <li class="list-inline-item"><a aria-label="instagram" href="#"><i class="mdi mdi-instagram"></i></a></li>
-                                <li class="list-inline-item"><a aria-label="whatsapp" href="#"><i class="mdi mdi-whatsapp"></i></a></li>
+                                <li class="list-inline-item" *ngFor="let socialNetwork of member.socialNetworks">
+                                    <a [href]="socialNetwork.url">
+                                        <i [class]="socialNetwork.icon"></i>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
                     <div class="p-3">
-                        <a href="#" class="text-primary">
-                            <h5 class="fs-18 mb-1">Juliana Waddell</h5>
+                        <a class="text-primary">
+                            <h5 class="fs-18 mb-1">{{member.name}}</h5>
                         </a>
-                        <p class="mb-0">CEO &amp; Founder</p>
+                        <p class="mb-0">{{member.role}}</p>
                     </div>
                 </div>
-                <!--end team-box-->
             </div>
-            <!-- END COL -->
-            <div class="col-lg-3 col-md-6">
-                <div class="team-box text-center">
-                    <div class="team-img position-relative">
-                        <img src="../../../../assets/images/users/img-1.jpg" class="img-fluid rounded" alt="">
-                        <div class="team-content">
-                            <ul class="list-inline mb-0 p-0">
-                                <li class="list-inline-item"><a aria-label="Facebook" href="#"><i class="mdi mdi-facebook"></i></a></li>
-                                <li class="list-inline-item"><a aria-label="instagram" href="#"><i class="mdi mdi-instagram"></i></a></li>
-                                <li class="list-inline-item"><a aria-label="whatsapp" href="#"><i class="mdi mdi-whatsapp"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="p-3">
-                        <a href="#" class="text-primary">
-                            <h5 class="fs-18 mb-1">Tyler Raymer</h5>
-                        </a>
-                        <p class="mb-0">Project Manager</p>
-                    </div>
-                </div>
-                <!--end team-box-->
-            </div>
-            <!-- END COL -->
-
-            <div class="col-lg-3 col-md-6">
-                <div class="team-box text-center">
-                    <div class="team-img position-relative">
-                        <img src="../../../../assets/images/users/img-3.jpg" class="img-fluid rounded" alt="">
-                        <div class="team-content">
-                            <ul class="list-inline mb-0 p-0">
-                                <li class="list-inline-item"><a aria-label="Facebook" href="#"><i class="mdi mdi-facebook"></i></a></li>
-                                <li class="list-inline-item"><a aria-label="instagram" href="#"><i class="mdi mdi-instagram"></i></a></li>
-                                <li class="list-inline-item"><a aria-label="whatsapp" href="#"><i class="mdi mdi-whatsapp"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="p-3">
-                        <a href="#" class="text-primary">
-                            <h5 class="fs-18 mb-1">Chris Lewis</h5>
-                        </a>
-                        <p class="mb-0">UI/UX Designer</p>
-                    </div>
-                </div>
-                <!--end team-box-->
-            </div>
-            <!-- END COL -->
-            <div class="col-lg-3 col-md-6">
-                <div class="team-box text-center">
-                    <div class="team-img position-relative">
-                        <img src="../../../../assets/images/users/img-4.jpg" class="img-fluid rounded" alt="">
-                        <div class="team-content">
-                            <ul class="list-inline mb-0 p-0">
-                                <li class="list-inline-item"><a aria-label="Facebook" href="#"><i class="mdi mdi-facebook"></i></a></li>
-                                <li class="list-inline-item"><a aria-label="instagram" href="#"><i class="mdi mdi-instagram"></i></a></li>
-                                <li class="list-inline-item"><a aria-label="whatsapp" href="#"><i class="mdi mdi-whatsapp"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="p-3">
-                        <a href="#" class="text-primary">
-                            <h5 class="fs-18 mb-1">Juliana Waddell</h5>
-                        </a>
-                        <p class="mb-0">Web Developer</p>
-                    </div>
-                </div>
-                <!--end team-box-->
-            </div>
-            <!-- END COL -->
         </div>
-        <!--end row-->
     </div>
-    <!--end container-->
 </section>
