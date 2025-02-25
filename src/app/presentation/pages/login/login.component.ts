@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { SharedModule } from '../../../shared/shared.module';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ValidacionService } from '../../../shared/services/validacion.service';
@@ -22,6 +22,7 @@ loginForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
+    private router: Router,
     public vs: ValidacionService,
   ) {
 
@@ -34,6 +35,10 @@ loginForm: FormGroup;
   
   ngOnInit(): void {
     this.vs.recibirForm(this.loginForm);
+  }
+
+  navigateToHome() {
+    this.router.navigate(['/home']);
   }
 
   guardar(){

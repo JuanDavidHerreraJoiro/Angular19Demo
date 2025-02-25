@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MaterialModule } from '../../../shared/directives/material.module';
+
 interface Testimonial {
   image: string;
   feedback: string;

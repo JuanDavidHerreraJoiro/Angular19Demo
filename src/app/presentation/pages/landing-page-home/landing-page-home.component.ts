@@ -2,10 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MaterialModule } from '../../../shared/directives/material.module';
 import { AtomCardComponent } from "../../../shared/components/atom-card/atom-card.component";
-import { ServiceComponent } from '../../components/service/service.component';
-import { ProcessComponent } from '../../components/process/process.component';
-import { TestimonialComponent } from '../../components/testimonial/testimonial.component';
-import { ContactComponent } from "../../components/contact/contact.component";
+import { ServiceComponent } from '../service/service.component';
+import { ProcessComponent } from '../process/process.component';
+import { TestimonialComponent } from '../testimonial/testimonial.component';
+import { ContactComponent } from "../contact/contact.component";
 
 @Component({
   imports: [

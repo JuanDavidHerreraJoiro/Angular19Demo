@@ -21,6 +21,10 @@ export class AppComponent {
   constructor(private router: Router) {}
 
   shouldShowNavMenu(): boolean {
-    return this.router.url !== '/login' && this.router.url !== '/sign-in' && this.router.url !== '/graphic';
+    return this.router.url !== '/login'
+    && this.router.url !== '/sign-in' 
+    && this.router.url !== '/graphic'
+    && this.router.url !== '/home'
+    ;
   }
 }
