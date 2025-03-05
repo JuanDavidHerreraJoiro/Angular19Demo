@@ -1,0 +1,50 @@
+.blank-layout-container {
+    height: 100%;
+    display: flex;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+
+}
+
+.error-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.error-card h1 {
+    font-size: 210px;
+    font-weight: 800;
+    line-height: 210px;
+    margin: 0;
+    text-shadow: 4px 5px 1px #b3bbbf;
+}
+
+.m-b-20 {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.m-b-30 {
+    margin-bottom: 30px;
+}
+
+.button-Logout {
+    width: 50%;
+    color: var(--secondary-color) !important;
+    border-radius: 10px;
+    border-color: var(--primary-color) !important;
+    background-color: var(--primary-color) !important;
+    box-shadow: none;
+}
+
+@media (max-width: 767px) {
+    .error-card h1 {
+        font-size: 120px;
+        line-height: 120px;
+    }
+}

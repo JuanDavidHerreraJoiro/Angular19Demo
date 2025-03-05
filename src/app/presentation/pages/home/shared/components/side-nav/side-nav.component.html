@@ -1,0 +1,24 @@
+<div class="side-nav-toolbar" [ngClass]="{'mini-toolbar': isMini}">
+  <div class="branding">
+    <a class="logodark" href="/">
+      <img src="../../../../../../../assets/images/descarga2.png" alt="logo" class="branding-logo m-2">
+    </a>
+    <h4 *ngIf="!isMini">Name App</h4>
+  </div>
+  <button mat-icon-button class="icon" (click)="closeSidenav()" aria-label="close" *ngIf="isMobile">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<mat-nav-list *ngFor="let group of listmenuButtons">
+  <div mat-subheader="" class="list-group-subheader">
+    {{group.name}}
+  </div>
+  <a class="list-group-button" mat-list-item *ngFor="let button of group.listbuttons" [routerLink]="button.path" routerLinkActive="active" #rla="routerLinkActive"
+  [class.highlight]="rla.isActive">
+    <span class="entry icon" [ngClass]="{'mini-entry': isMini}">
+      <mat-icon>{{button.icon}}</mat-icon>
+      <span *ngIf="!isMini">{{button.title}}</span>
+    </span>
+  </a>
+</mat-nav-list>

@@ -21,8 +21,8 @@ export class NavMenuComponent {
     { path: 'process', label: 'Process' },
     { path: 'testimonial', label: 'Testimonial' },
     { path: 'contact', label: 'Contact' },
-    { path: 'login', label: 'Login' },
-    { path: 'sign-in', label: 'Sign in' }
+    { path: 'authentication/login', label: 'Login' },
+    { path: 'authentication/sign-in', label: 'Sign in' }
   ];
 
   @HostListener('window:scroll', [])
@@ -56,7 +56,7 @@ export class NavMenuComponent {
   }
 
   redirectToLogin(ruta: string) {
-    if(ruta === 'login' || ruta === 'sign-in') {
+    if(ruta === 'authentication/login' || ruta === 'authentication/sign-in') {
       this.router.navigate(['/'+ruta]);
     }
   }

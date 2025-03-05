@@ -1,0 +1,14 @@
+<div class="notification-container">
+    <div class="p-x-32 p-y-16">
+        <div class="aling">
+            <div class="avatar2 avatar-container">
+                <img src="{{ avatar }}" class="avatar3" />
+                <span *ngIf="isActive" class="status-badge" [ngStyle]="{'background-color': randomColor}"></span>
+            </div>
+            <div class="m-l-16">
+                <h5>{{ title }}</h5>
+                <span>{{ subtitle }}</span>
+            </div>
+        </div>
+    </div>
+</div>

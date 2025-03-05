@@ -1,1 +1,12 @@
-<p>home works!</p>
+<mat-sidenav-container class="sidenav-container" [hasBackdrop]="hasBackdrop">
+    <mat-sidenav #sidenav [opened]="isSidenavOpen" [mode]="sidenavMode" class="sidenav" [ngClass]="{'mini-mode': isMiniMode}">
+        <app-side-nav [sidenav]="sidenav" [isMini]="isMiniMode"></app-side-nav>
+    </mat-sidenav>
+
+    <mat-sidenav-content [ngClass]="{'mini-mode2': isMiniMode}">
+        <app-header (sidenavToggle)="toggleSidenav(sidenav)"></app-header>
+        <div class="body-container">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -40,24 +40,9 @@ body {
     --shadow-icon-color:#21695826;
     --shadow-box-color:#00000021;
     --shadow-text-color:#05bd9380;
+    
+    --hover-button-color:#EBFBFC;
 
     --line-color: #2a3547;
     --rombo-color: #f9f9f9;
 }
-
-/*
-.mdc-text-field--outlined .mat-mdc-form-field-infix, .mdc-text-field--no-label .mat-mdc-form-field-infix {
-  padding-top: var(--mat-form-field-container-vertical-padding, 5px);
-  padding-bottom: var(--mat-form-field-container-vertical-padding, 5px);
-}
-
-
-.mat-mdc-text-field-wrapper {
-  height: auto;
-  flex: auto;
-  will-change: auto;
-}
-
-
-
-*/

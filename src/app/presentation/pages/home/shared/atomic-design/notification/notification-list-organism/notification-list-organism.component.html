@@ -1,0 +1,18 @@
+<div class="profile-menu">
+    <div class="p-x-32 p-y-16">
+        <div class="notification-header">
+            <h6>{{titleText}}</h6>
+            <span class="m-l-auto"><span>{{notifications.length || 0}} new</span></span>
+        </div>
+    </div>
+    
+    <app-notification-item-atom *ngFor="let notification of notifications" [title]="notification.title"
+            [subtitle]="notification.subtitle" [avatar]="notification.avatar" [isActive]="notification.isActive">
+    </app-notification-item-atom>
+
+    <div class="p-x-32 p-y-16">
+        <button mat-stroked-button class="button-Logout">
+            {{titleButton}}
+        </button>
+    </div>
+</div>

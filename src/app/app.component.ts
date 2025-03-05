@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { NavMenuComponent } from './shared/components/nav-menu/nav-menu.component';
 import { FooterComponent } from "./shared/components/footer/footer.component";
 
@@ -21,10 +21,12 @@ export class AppComponent {
   constructor(private router: Router) {}
 
   shouldShowNavMenu(): boolean {
-    return this.router.url !== '/login'
-    && this.router.url !== '/sign-in' 
-    && this.router.url !== '/graphic'
-    && this.router.url !== '/home'
+    return this.router.url === '/'
+    || this.router.url === '/#home'
+    || this.router.url === '/#service' 
+    || this.router.url === '/#process' 
+    || this.router.url === '/#testimonial'
+    || this.router.url === '/#contact'
     ;
   }
 }

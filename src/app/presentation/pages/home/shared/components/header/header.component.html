@@ -1,0 +1,81 @@
+<mat-toolbar>
+  <button mat-icon-button class="icon" (click)="openSidenav()" aria-label="Menu" >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="example-spacer"></span>
+  <button mat-icon-button [matMenuTriggerFor]="messages" class="icon">
+    <mat-icon [matBadge]="messagesList.length" [matBadgeHidden]="!messagesList.length"
+      aria-hidden="false">chat</mat-icon>
+  </button>
+  <button mat-icon-button [matMenuTriggerFor]="notifications" class="icon">
+    <mat-icon [matBadge]="notificationsList.length" [matBadgeHidden]="!notificationsList.length"
+      aria-hidden="false">notifications_none</mat-icon>
+  </button>
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="avatar">
+    <img src="../../../../../../../assets/images/avatar/Avatar men4.jpeg" />
+  </button>
+</mat-toolbar>
+
+<mat-menu #menu="matMenu" class="topbar">
+  <div class="profile-menu">
+    <div class="p-x-32 p-y-16">
+      <h6>User Profile</h6>
+      <div class="profile-header">
+        <img src="../../../../../../../assets/images/avatar/Avatar men4.jpeg" alt="User" class="rounded-circle" />
+
+        <div class="m-l-16">
+          <h6>{{ user.name }}</h6>
+          <p>{{ user.role }}</p>
+          <p>
+            <mat-icon class="icon">email</mat-icon>
+            {{ user.email }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-x-32">
+      <a [routerLink]="profile.path" class="p-y-16 text-decoration-none d-block" *ngFor="let profile of menuProfiles">
+        <div class="button-profile">
+          <button mat-menu-item class="p-y-16">
+            <mat-icon>{{ profile.icon }}</mat-icon>
+          </button>
+          <div class="m-l-16">
+            <h5>{{ profile.title }}</h5>
+            <span>{{ profile.subtitle }}</span>
+          </div>
+        </div>
+      </a>
+
+      <div class="upgrade-section">
+        <div>
+          <h5>Unlimited<br />Access</h5>
+          <button mat-raised-button color="primary">Upgrade</button>
+        </div>
+        <div>
+          <div>
+            <img src="../../../../../../../assets/images/descarga.png" alt="upgrade-bg" class="upgrade-bg" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-x-32 p-y-16">
+      <p>v1.0.0.0</p>
+    </div>
+
+    <div class="p-x-32 p-y-16">
+      <button mat-stroked-button class="button-Logout" (click)="logout()">Logout</button>
+    </div>
+  </div>
+</mat-menu>
+
+<mat-menu #notifications="matMenu" class="topbar">
+  <app-notification-list-organism [notifications]="notificationsList" titleText="Notifications"
+    titleButton="See all notifications"></app-notification-list-organism>
+</mat-menu>
+
+<mat-menu #messages="matMenu" class="topbar">
+  <app-notification-list-organism [notifications]="messagesList" titleText="Messages"
+    titleButton="See all menssages"></app-notification-list-organism>
+</mat-menu>
